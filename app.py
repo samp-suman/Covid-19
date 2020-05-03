@@ -5,7 +5,7 @@ import plotly.express as px
 import dash
 import dash_html_components as html
 import dash_core_components as dcc
-from dash.dependencies import Input,Output
+from dash.dependencies import Input, Output
 import dash_table
 
 
@@ -109,14 +109,10 @@ x=[]
 for i in range(0,len(trimr)):
     x.append(trimr.iloc[i,-1]-trimr.iloc[i,-2])
 display['New Recoveries']=x
-#
 
 
-
-app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
-
-                )
-server=app.server
+app = dash.Dash('app', external_stylesheets=external_stylesheets,)
+server = app.server
 
 
 
@@ -690,6 +686,7 @@ def country_vs_daily(type,ran):
                'title': 'New Recoveries per Country',
            })
        }
+
 
 if __name__ == "__main__":
     app.run_server(debug=True)
